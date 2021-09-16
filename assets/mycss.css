@@ -1,0 +1,161 @@
+/*
+-------------------------------------
+edit.html
+-------------------------------------
+*/
+/*リスト偶数のみbg変更*/
+.proceeds-list li:nth-child(even){
+    background:#e7e7e7;
+}
+
+/*
+-------------------------------------
+results.html
+-------------------------------------
+*/
+
+/*カレンダー*/
+/* 日曜日：赤 */
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-weekdays .flatpickr-weekday:nth-child(7n + 1),
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-days .flatpickr-day:not(.flatpickr-disabled):not(.prevMonthDay):not(.nextMonthDay):nth-child(7n + 1) {
+    color: red;
+}
+ 
+/* 土曜日：青 */
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-weekdays .flatpickr-weekday:nth-child(7),
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-days .flatpickr-day:not(.flatpickr-disabled):not(.prevMonthDay):not(.nextMonthDay):nth-child(7n) {
+    color: blue;
+}
+
+
+/*
+-------------------------------------
+index.html
+-------------------------------------
+*/
+body{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.rogin-erea{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+
+.login-img img{
+    animation:5s linear infinite rotation1;
+    position: absolute;
+    top: -7%;
+    left: -7%;
+
+}
+
+    @keyframes rotation1{
+        0%{ transform:rotate(0);}
+        100%{ transform:rotate(360deg); }
+      }
+
+/*
+-------------------------------------
+共通
+-------------------------------------
+*/
+
+/*========= ページトップのためのCSS ===============*/
+
+/*リンクの形状*/
+#page-top a{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    background:#adb5bd;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase; 
+    text-decoration: none;
+    font-size:0.6rem;
+    transition:all 0.3s;
+  }
+#footer #page-top span {
+    padding-top: 8px;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+  
+  #page-top a:hover{
+    background: #777;
+  }
+  
+  /*リンクを右下に固定*/
+  #page-top {
+    position: fixed;
+    right: 10px;
+    bottom:10px;
+    z-index: 2;
+      /*はじめは非表示*/
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  
+  /*　上に上がる動き　*/
+  
+  #page-top.UpMove{
+    animation: UpAnime 0.5s forwards;
+  }
+  @keyframes UpAnime{
+    from {
+      opacity: 0;
+    transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+    transform: translateY(0);
+    }
+  }
+  
+  /*　下に下がる動き　*/
+  
+  #page-top.DownMove{
+    animation: DownAnime 0.5s forwards;
+  }
+  @keyframes DownAnime{
+    from {
+      opacity: 1;
+    transform: translateY(0);
+    }
+    to {
+      opacity: 1;
+    transform: translateY(100px);
+    }
+  }
+
+
+.wrapper{     
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 50px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+footer{
+    width: 100%;
+    color: #777;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ai-hawk-basic</title>
+    <!-- ファビコン -->
+    <link rel="icon" href=".\assets\img\ai-hawk-basic.ico">
+    <!-- BootstrapのCSS読み込み -->
+    <link href="bootstrap5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- オリジナルのCSS読み込み -->
+    <link href="assets\mycss.css" rel="stylesheet">
+    <!-- Bootstrap-icon読み込み -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"defer></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="bootstrap5/js/bootstrap.min.js"defer></script>  
+    <!-- グラフ -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js" defer></script>
+    <!-- chart.JSの設定ファイル -->
+    <script src="./assets/chart.js"defer></script>
+    <!-- ページスクロール用の設定ファイル -->
+    <script src="./assets/top-scroll.js"defer></script>
+   
+      
+   
+  </head>
+  <body>
+    <section class="wrapper">
+        <header>
+          <!-- ナビゲーションバー -->
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+            <div class="container-md" style="max-width: 992px;">
+                <a class="navbar-brand mb-1" href="./edit.html">
+                    <img src="assets\img\hawk-basic.png" alt="" width="150" height="28">
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item ps-3">
+                    <a class="nav-link" href="./edit.html">予測の設定</a>
+                  </li>
+                  <li class="nav-item ps-3">
+                    <a class="nav-link" href="./setting.html">定休日設定</a>
+                  </li>
+                  <li class="nav-item ps-3">
+                    <a class="nav-link" href="./info.html">ご利用ガイド</a>
+                  </li>
+                </ul>
+                <span class="navbar-text">
+                    <button type="button" class="btn btn-outline-light"><i class="bi bi-caret-left-fill pe-1"></i>スマレジアプリTOP</button>
+                </span>
+              </div>
+            </div>
+          </nav>
+        </header>
+       
+        
+        <main class="container-md" style="max-width: 992px;">
+          <!-- 予測グラフカード -->   
+          <section>
+            <div class="card shadow text-white bg-dark">
+              <div class="card-header"><i class="bi bi-graph-up pe-1"></i>予測グラフ
+              </div>
+                <div class="card-body">
+                  
+
+                    <!-- 予測設定に戻る -->
+                    
+                      <a class="btn btn-outline-light rounded-pill   mb-3 ps-5 pe-5"  href="edit.html" role="button">予測設定に戻る</a>
+                   
+                    
+                    <!-- 日付選択ボタン -->   
+                    <div >  
+                      <div class="btn-group">
+                        <a href="#" class="btn btn-primary active" aria-current="page">10日間</a>
+                        <a href="#" class="btn btn-primary">20日間</a>
+                        <a href="#" class="btn btn-primary">30日間</a>
+                        <a href="#" class="btn btn-primary">45日間</a>
+                      </div>
+                  </div>
+
+                    <!-- 10日間予測グラフ グラフの設定はChart.js内-->
+                    <div class="mychart-wrapp">
+                    <canvas id="myChart" style="width:100%; height: 60vh;"  class="bg-light rounded p-2 mt-3 mb-3 myChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+          </section>
+          <!-- ここまで予測グラフカード -->   
+
+          <!-- ここから下部 -->   
+          <section class="row">
+
+            <!-- 週間予測 --> 
+            <section class="col-md-8 mt-4">   
+              <div class="card shadow text-white bg-dark">
+                  <div class="card-header"><i class="bi bi-calendar pe-1"></i>週間予測</div>
+                  <div class="card-body">
+                    <!-- １週間の予測データリスト -->
+                      <ul class="list-group proceeds-list">
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6" id= ""><p class="mb-0">2021/10/05</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6"><p id= "" class="mb-0">2021/10/04</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6" ><p id= "" class="mb-0">2021/10/03</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6"><p id= "" class="mb-0">2021/10/02</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6"><p id= "" class="mb-0">2021/10/01</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6"><p id= "" class="mb-0">2021/10/01</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          <li class="list-group-item">
+                            <div class="row">
+                              <div class="col-6"><p id= "" class="mb-0">2021/10/01</p></div>
+                              <div class="col-6"><p class="float-end mb-0 fw-bold">&#165;<span class="ps-1" id= "">10,000</span></p></div>
+                            </div>
+                          </li>
+                          
+                        </ul>
+                  </div>
+            </section>
+            <!-- ここまで週間予測 --> 
+
+            <!-- ここからアプリ情報 --> 
+            <section class="col-md-4 mt-4">
+              <div class="card shadow text-white bg-dark mb-10" >
+                <div class="card-header"><i class="bi bi-info-circle-fill pe-1"></i>アプリ情報</div>
+                <div class="card-body">
+                    <!-- ご利用ガイドボタン -->
+                    <div class="text-center mt-3">     
+                      <a class="mt-3" href="info.html">
+                        <img src="assets\img\hawk-basic.png" alt="" width="150" height="28">
+                      </a>                         
+                        <div class="d-grid gap-2">                              
+                          <a href="info.html"class="btn tn btn-outline-light rounded-pill mt-4 mb-2 " role="button">ご利用ガイド</a>
+                        </div>
+                    </div>
+                    
+                    <!-- お問合せボタン -->
+                    <div class="text-center mt-5">            
+                      <a class="text-center mt-3" href="https://www.rox-jp.com/contact" target="_blank" rel="noopener noreferrer">
+                        <img src="assets\img\rox-logo.png" alt="" width="100" height="38">
+                      </a>      
+                      <div class="d-grid gap-2 pb-3">                              
+                        <a class="btn tn btn-outline-light rounded-pill mt-4 mb-2 " href="https://www.rox-jp.com/contact" target="_blank" rel="noopener noreferrer" role="button">お問合せ</a>
+                      </div>
+                    </div>
+              </div>
+
+            </section>
+            <!-- ここまでアプリ情報 --> 
+          </section>          
+        </main>
+
+        <footer id="footer" class="text-center mt-2">
+          <p id="page-top"><a href="#"><span></span></a></p> 
+          <small>&copy; ROX.inc</small>  
+        </footer>
+       </section>
+
+     </body>
+</html>
