@@ -27,6 +27,24 @@ results.html
     color: blue;
 }
 
+/*
+-------------------------------------
+setting.html
+-------------------------------------
+*/
+dt{
+  font-size: 12px;
+  display: inline-block;
+}
+dd{
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 0;
+}
+dl{
+  border-left: solid 1px #707070;
+  padding-left: 15px;
+}
 
 /*
 -------------------------------------
