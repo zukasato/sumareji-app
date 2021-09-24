@@ -68,9 +68,10 @@
                 <section class="col-md-4">
                     <!-- 過去データの取得期間を設定 -->
                     <div class="card shadow text-white bg-dark mb-3 me-lg-3 mb-5">
-                        <div class="card-header"><i class="bi bi-calendar pe-1"></i>過去データの取得期間を設定</div>
+                        <div class="card-header"><i class="bi bi-calendar pe-1"></i>売上データの取得</div>
                         <div class="card-body">
                             <!-- 開始日カレンダー選択 -->
+                            <p><span class="badge rounded-pill bg-primary text-dark me-2 text-white">step1</span>取得期間を設定して下さい</p>
                             <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest">
                               <input type="text" data-input class="form-control" placeholder="開始日" data-target="#datetimepicker1"/>
                               <span class="input-group-text" data-toggle>
@@ -78,59 +79,42 @@
                               </span>
                             </div>
 
-                            <p class="ms-3"><i class="bi bi-chevron-down"></i></p>
-
-
+                          
                             <!-- 終了日カレンダー選択 -->
-                            <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest">
+                            <div class="input-group date mb-5" id="datetimepicker1" data-target-input="nearest">
                               <input type="text" data-input class="form-control" placeholder="終了日" data-target="#datetimepicker1"/>
                               <span class="input-group-text" data-toggle>
                                   <i class="bi bi-calendar"></i>
                               </span>
                             </div>
+
+
+                            <!-- 店舗選択　ドロップダウン -->
+                            <p><span class="badge rounded-pill bg-primary text-white me-2">step2</span>店舗を選択して下さい</p>
+                            <div class="input-group mb-3">
+                              <select class="form-select" id="store-select" aria-label="Example select with button addon">
+                                <option selected>店舗を選択</option>
+                                <option value="1">横浜店</option>
+                                <option value="2">川崎店</option>
+                                <option value="3">武蔵小杉店</option>
+                              </select>
+                              
+                            </div>
+
+
+
+
+
                           
                             <!-- 売上データ取得ボタン -->
-                            <div class="d-grid gap-2">                              
+                            <div class="d-grid gap-2 mb-3">                              
                                 <button class="btn btn-primary rounded-pill  mt-2 mb-2"  type="button">売上データ取得</button>
                             </div>
                         </div>
                     </div>
 
+                    
 
-                    <!-- 店舗を選択 -->
-                    <div class="card shadow text-white bg-dark mb-3 me-lg-3 mb-5">
-                        <div class="card-header"><i class="bi bi-house-door-fill pe-1"></i>店舗を選択</div>
-                        <div class="card-body">
-                            <!-- 店舗リスト -->
-                            <div class="list-group">
-                                <label class="list-group-item text-white bg-dark border-0">
-                                  <input class="form-check-input me-1" type="checkbox" value="" checked/>
-                                  全ての店舗
-                                </label>
-                                <label class="list-group-item text-white bg-dark border-0">
-                                  <input class="form-check-input me-1" type="checkbox" value=""/>
-                                  渋谷店
-                                </label>
-                                <label class="list-group-item text-white bg-dark border-0">
-                                  <input class="form-check-input me-1" type="checkbox" value=""/>
-                                  新宿店
-                                </label>
-                                <label class="list-group-item text-white bg-dark border-0">
-                                  <input class="form-check-input me-1" type="checkbox" value=""/>
-                                  原宿店
-                                </label>
-                                <label class="list-group-item text-white bg-dark border-0">
-                                  <input class="form-check-input me-1" type="checkbox" value=""/>
-                                  恵比寿店
-                                </label>
-                              </div>
-
-                            <!-- 定休日を設定するボタン -->
-                              <div class="d-grid gap-2">                              
-                                <a class="btn tn btn-outline-light rounded-pill mt-4 mb-2 " role="button" href="setting.html">定休日を設定する</a>
-                              </div>
-                        </div>
-                    </div>
                  </section>  
                  <!-- ここまで左カラム -->
 
