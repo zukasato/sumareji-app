@@ -7,7 +7,6 @@ edit.html
 .proceeds-list li:nth-child(even){
     background:#e7e7e7;
 }
-
 /*
 -------------------------------------
 results.html
@@ -171,3 +170,13 @@ footer{
     bottom: 0; /*下に固定*/
 }
 
+/*
+-------------------------------------
+watting.html
+-------------------------------------
+*/
+
+.waiting > dl{
+  border-left: none;
+  padding-left: 0px;
+}

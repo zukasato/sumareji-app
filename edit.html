@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"defer></script>
     <!-- カレンダー実装flatpickr日本語化のための-JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"defer></script>
+     <!-- toolti実装 -->
+    <script src="https://unpkg.com/@popperjs/core@2"defer></script>
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"defer></script>
     <!-- BootstrapのJS読み込み -->
@@ -27,6 +29,8 @@
     <script src="static/assets/js/calendar.js" defer></script> 
     <!-- ページスクロール用の設定ファイル -->
     <script src="static/assets/js/top-scroll.js"defer></script>
+    <!-- tooltip用の設定ファイル -->
+    <script src="static/assets/js/tooltip.js"defer></script>
   </head>
   <body>
     <section class="wrapper">
@@ -46,7 +50,7 @@
                 <a class="nav-link active" aria-current="page" href="./edit.html">予測の設定</a>
               </li>
               <li class="nav-item ps-3">
-                <a class="nav-link" href="./setting.html">定休日設定</a>
+                <a class="nav-link" href="./setting.html">店舗データ設定</a>
               </li>
               <li class="nav-item ps-3">
                 <a class="nav-link" href="https://www.rox-jp.com/hawk-basic-smaregi" target="_blank" rel="noopener noreferrer">ご利用ガイド</a>
@@ -61,18 +65,17 @@
     </header>
 
 
-
         <main class="container-md" style="max-width: 992px;">
             <section class="row">
                 <!-- 左カラム -->
                 <section class="col-md-4">
                     <!-- 過去データの取得期間を設定 -->
                     <div class="card shadow text-white bg-dark mb-3 me-lg-3 mb-5">
-                        <div class="card-header"><i class="bi bi-calendar pe-1"></i>売上データの取得</div>
+                        <div class="card-header"><i class="bi bi-gear pe-1"></i>予測計算のための設定</div>
                         <div class="card-body">
                             <!-- 開始日カレンダー選択 -->
-                            <p><span class="badge rounded-pill bg-primary text-dark me-2 text-white">step1</span>取得期間を設定して下さい</p>
-                            <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest">
+                            <p><span class="badge rounded-pill bg-primary text-dark me-2 mb-5 text-white">step1</span>期間を選択する</p>
+                            <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest" data-bs-toggle="tooltip" data-bs-html="true" title="予測計算に使用する<br>過去の期間を選択して下さい">
                               <input type="text" data-input class="form-control" placeholder="開始日" data-target="#datetimepicker1"/>
                               <span class="input-group-text" data-toggle>
                                   <i class="bi bi-calendar"></i>
@@ -91,24 +94,18 @@
 
                             <!-- 店舗選択　ドロップダウン -->
                             <p><span class="badge rounded-pill bg-primary text-white me-2">step2</span>店舗を選択して下さい</p>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3 mb-5">
                               <select class="form-select" id="store-select" aria-label="Example select with button addon">
                                 <option selected>店舗を選択</option>
                                 <option value="1">横浜店</option>
                                 <option value="2">川崎店</option>
                                 <option value="3">武蔵小杉店</option>
                               </select>
-                              
-                            </div>
-
-
-
-
-
-                          
+                            </div>                     
                             <!-- 売上データ取得ボタン -->
                             <div class="d-grid gap-2 mb-3">                              
-                                <button class="btn btn-primary rounded-pill  mt-2 mb-2"  type="button">売上データ取得</button>
+                                <button class="btn btn-primary rounded-pill  mt-2 mb-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top"  data-bs-html="true" title="選択した期間・店舗の<br>売上データを表示します">
+                                  データをセットする</button>
                             </div>
                         </div>
                     </div>
@@ -129,7 +126,7 @@
                         <div class="card-body">
 
                           <!-- 予測計算を実行するボタン -->
-                          <a href="results.html">
+                          <a href="waiting.html">
                             <button type="button" class="btn btn-primary btn-lg mb-3">予測計算を実行する</button>
                           </a>
 
